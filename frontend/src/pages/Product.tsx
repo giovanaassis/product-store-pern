@@ -1,6 +1,11 @@
+import Navbar from "../components/Navbar"
+
 function Product() {
   return (
-    <div>Product</div>
+    <div>
+      <Navbar />
+      <h1>Product</h1>
+    </div>
   )
 }
 
