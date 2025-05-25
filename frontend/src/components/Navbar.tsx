@@ -1,4 +1,5 @@
 import { ShoppingCartIcon, ShoppingBagIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
@@ -10,10 +11,12 @@ const Navbar = () => {
   return (
     <div className="bg-secondary-black flex items-center justify-around py-6">
       {/* LOGO */}
-      <div className="flex text-blue cursor-pointer items-center gap-x-3">
-        <ShoppingCartIcon size={50} />
-        <span>PRODUCT STORE</span>
-      </div>
+      <Link to={"/"}>
+        <div className="flex text-blue cursor-pointer items-center gap-x-3 text-2xl">
+          <ShoppingCartIcon size={50} />
+          <span>PRODUCT STORE</span>
+        </div>
+      </Link>
 
       {/* RIGHT SECTION */}
       {isHomePage && (

@@ -8,7 +8,7 @@ export const getAllProducts = async (req, res) => {
     `;
 
     console.log("fetched products", products);
-    res.status(StatusCodes.OK).json({ data: products });
+    res.status(StatusCodes.OK).json(products);
   } catch (error) {
     console.log("ERROR at getAllProducts function", error);
     res

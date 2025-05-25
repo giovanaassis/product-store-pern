@@ -17,8 +17,12 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
 
-// APPLY AARCJET RATE-LIMIT TO ALL ROUTES
+// APPLY ARCJET RATE-LIMIT TO ALL ROUTES
 app.use(async (req, res, next) => {
+  if (process.env.NODE_ENV === "development") {
+    return next();
+  }
+
   try {
     const decision = await aj.protect(req, { requested: 1 });
 

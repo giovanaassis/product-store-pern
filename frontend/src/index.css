@@ -1,11 +1,24 @@
 @import "tailwindcss";
 
 :root {
-    font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 @theme {
   --color-primary-black: #212529;
   --color-secondary-black: #343a40;
   --color-blue: #338ef5;
+}
+
+@layer components {
+  .productCard {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.377);
+  }
+
+  .spinner {
+    animation: spin 0.8s linear infinite;
+  }
 }
