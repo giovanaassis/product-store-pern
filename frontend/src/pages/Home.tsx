@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { getProducts } from "../services/getProducts";
-import { RefreshCwIcon, PlusCircleIcon, LoaderCircleIcon } from "lucide-react";
+import { RefreshCwIcon, LoaderCircleIcon } from "lucide-react";
 import ProductCard from "../components/ProductCard";
 import type { ProductType } from "../@types/product";
 import { deleteProducts } from "../services/deleteProducts";
 import toast from "react-hot-toast";
+import AddProductModal from "@/components/AddProductModal";
 
 function Home() {
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -49,9 +50,9 @@ function Home() {
 
       <main className="flex items-center justify-center flex-col w-[70%] mx-auto pb-10">
         <div className="flex items-center justify-between w-full py-10">
-          <div className="bg-[#23CE6B] text-primary-black font-bold p-3 rounded-full flex items-center gap-x-2 cursor-pointer">
-            <PlusCircleIcon />
-            <button className="cursor-pointer">Add Product</button>
+          
+          <div>
+            <AddProductModal />
           </div>
           <RefreshCwIcon className="cursor-pointer" onClick={fetchData} />
         </div>
