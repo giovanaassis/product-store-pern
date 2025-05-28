@@ -32,7 +32,6 @@ function Home() {
         duration: 2000,
         style: {
           color: "#fb2c36",
-          backgroundColor: "#212529",
         },
       });
     } catch (error) {
@@ -52,7 +51,7 @@ function Home() {
         <div className="flex items-center justify-between w-full py-10">
           
           <div>
-            <AddProductModal />
+            <AddProductModal onProductAdded={fetchData}/>
           </div>
           <RefreshCwIcon className="cursor-pointer" onClick={fetchData} />
         </div>

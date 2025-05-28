@@ -19,12 +19,12 @@ function ProductCard({ image, name, price, id, onDelete }: ProductCardProps) {
       {/* CONTENT PRODUCT */}
       <div className="p-5">
         {/* DESCRIPTION */}
-        <p>{name}</p>
+        <p className="capitalize">{name}</p>
         <p className="text-green-400 font-bold my-3">${price}</p>
 
         {/* ACTIONS ICONS */}
         <div className="flex justify-end gap-x-5">
-          <Link to={"/product"}>
+          <Link to={`/product/${id}`}>
             <EditIcon className="text-blue cursor-pointer md:hover:opacity-60" />
           </Link>
           <Trash2
