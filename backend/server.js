@@ -7,14 +7,20 @@ import productRoutes from "./routes/productRoutes.js";
 import { sql } from "./config/db.js";
 import { aj } from "./lib/arcjet.js";
 import { StatusCodes } from "http-status-codes";
+import path from "path";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const __dirname = path.resolve();
 
 // MIDDLEWARES
 app.use(express.json());
 app.use(cors());
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 app.use(morgan("dev"));
 
 // APPLY ARCJET RATE-LIMIT TO ALL ROUTES
@@ -64,6 +70,15 @@ app.use(async (req, res, next) => {
 
 // ROUTES
 app.use("/api/products", productRoutes);
+
+// SERVER OUR REACT APP
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "frontend", "dist")));
+
+  app.get("/{*splat}", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+  });
+}
 
 const initDB = async () => {
   try {
