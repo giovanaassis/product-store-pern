@@ -26,7 +26,7 @@ function Product() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar products={[]}/>
 
       {!currentProduct ? (
         <p className="text-2xl text-center mt-10">Loading...</p>

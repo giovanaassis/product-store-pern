@@ -45,7 +45,7 @@ function Home() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar products={products}/>
 
       <main className="flex items-center justify-center flex-col w-[70%] mx-auto pb-10 md:w-[70%] lg:w-[1200px]">
         <div className="flex items-center justify-between w-full py-10 lg:px-8">
