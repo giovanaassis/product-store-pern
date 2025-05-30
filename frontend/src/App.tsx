@@ -10,7 +10,7 @@ function App() {
       <div className="min-h-screen bg-base-200 transition-colors duration-300 text-base bg-primary-black text-white w-[100%]">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/product/:id" element={<Product />} />
         </Routes>
       </div>
 
