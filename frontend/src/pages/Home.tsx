@@ -47,9 +47,8 @@ function Home() {
     <div>
       <Navbar />
 
-      <main className="flex items-center justify-center flex-col w-[70%] mx-auto pb-10">
-        <div className="flex items-center justify-between w-full py-10">
-          
+      <main className="flex items-center justify-center flex-col w-[70%] mx-auto pb-10 md:w-[70%] lg:w-[1200px]">
+        <div className="flex items-center justify-between w-full py-10 lg:px-8">
           <div>
             <AddProductModal onProductAdded={fetchData}/>
           </div>
@@ -64,7 +63,7 @@ function Home() {
         {isLoading ? (
           <LoaderCircleIcon className="spinner" />
         ) : (
-          <section className="flex gap-15 flex-col md:flex-row">
+          <section className="flex gap-15 flex-col justify-center md:flex-wrap lg:flex-row lg:flex-wrap">
             {products.map((product) => (
               <ProductCard
                 name={product.name}
